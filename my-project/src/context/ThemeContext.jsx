@@ -5,53 +5,54 @@ const themeSetting = (mode) =>
 		? {
 				palette: {
 					action: {
-						active: "#33405C",
+						active: "bg-dark-primaryAction",
 					},
 					background: {
-						default: "text-orange-500",
+						primary: "dark-dark-primary",
 					},
 					border: {
-						primary: "#33405C",
+						primary: "border-dark-primaryBorder",
 					},
 					button: {
-						primary: "#F5C754",
-						secondary: "#E3E8F2",
-						primaryText: "#141C24",
-						secondaryText: "#F7FAFA",
+						primary: "bg-dark-primaryButton",
+						secondary: "bg-dark-secondaryButton",
+						primaryText: "bg-dark-primaryButtonText",
+						secondaryText: "bg-dark-secondaryButtonText",
 					},
 					chart: {
-						primary: "#8A9EBF",
+						primary: "bg-dark-primaryChart",
 					},
 					mode: mode,
 					text: {
-						primary: "#F7FAFA",
-						secondary: "#8A9EBF",
+						primary: "text-dark-primaryText",
+						secondary: "text-dark-secondaryText",
 					},
 				},
 		  }
 		: {
 				palette: {
 					action: {
-						active: "#E3E8F2",
+						active: "bg-light-primaryAction",
 					},
 					background: {
-						primary: "text-stone-950",
+						primary: "bg-light-primary",
 					},
 					border: {
-						primary: "#D4DBE8",
+						primary: "border-light-primaryBorder",
 					},
 					button: {
-						primary: "#F5C754",
-						secondary: "#E3E8F2",
-						primaryText: "#141C24",
-						secondaryText: "#141C24",
+						primary: "bg-light-primaryButton",
+						secondary: "bg-light-secondaryButton",
+						primaryText: "bg-light-primaryButtonText",
+						secondaryText: "bg-light-secondaryButtonText",
 					},
 					chart: {
-						primary: "#0F1622",
+						primary: "bg-light-primaryChart",
 					},
+					mode: mode,
 					text: {
-						primary: "#141C24",
-						secondary: "#D4DBE8",
+						primary: "text-light-primaryText",
+						secondary: "text-light-secondaryText",
 					},
 				},
 		  };

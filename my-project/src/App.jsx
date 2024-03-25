@@ -1,19 +1,21 @@
 import React from "react";
 import { ThemeModeContext } from "./context/ThemeContext";
 import { modeSetting } from "./context/ThemeContext";
-import Toggle from "./Toggle";
+import { useContext } from "react";
 
 export default function App() {
 	const [themeMode, theme] = modeSetting();
-	const colors = theme.palette;
-	console.log(themeMode, colors);
+	const { palette } = theme;
+	console.log(themeMode, `text-${palette.background.primary}`);
 	return (
-		<ThemeModeContext.Provider value={themeMode}>
+		<ThemeModeContext.Provider value={themeMode.toggleThemeMode}>
 			<h1
-				className={`text-3xl font-bold underline ${colors.background.default}`}>
+				onClick={() => {
+					console.log("hi");
+				}}
+				className={`text-3xl font-bold underline text-${palette.background.primary}`}>
 				Hello world!
 			</h1>
-			<Toggle />
 		</ThemeModeContext.Provider>
 	);
 }
