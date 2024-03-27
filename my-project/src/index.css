@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.recharts-surface {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

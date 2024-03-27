@@ -1,21 +1,16 @@
-import React from "react";
-import { ThemeModeContext } from "./context/ThemeContext";
-import { modeSetting } from "./context/ThemeContext";
-import { useContext } from "react";
+import { modeSetting, ThemeModeContext } from "./context/ThemeContext";
+import Index from "./pages/Index";
 
 export default function App() {
-	const [themeMode, theme] = modeSetting();
-	const { palette } = theme;
-	console.log(themeMode, `text-${palette.background.primary}`);
+	const [mode, themeMode] = modeSetting();
+	// console.log(mode);
+	themeMode.addThemeModeClass(mode);
+
+	// console.log(mode);
+	// console.log(window.document.documentElement);
 	return (
-		<ThemeModeContext.Provider value={themeMode.toggleThemeMode}>
-			<h1
-				onClick={() => {
-					console.log("hi");
-				}}
-				className={`text-3xl font-bold underline text-${palette.background.primary}`}>
-				Hello world!
-			</h1>
+		<ThemeModeContext.Provider value={{ mode, themeMode }}>
+			<Index></Index>
 		</ThemeModeContext.Provider>
 	);
 }

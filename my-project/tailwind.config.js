@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+	darkMode: "class",
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
 		colors: {
 			dark: {
-				primaryAction: "#33405C",
+				primaryAction: "#666",
 				primary: "#121C24",
 				primaryBorder: "#33405C",
 				primaryButton: "#F5C754",
@@ -24,8 +25,21 @@ export default {
 				primaryButtonText: "#141C24",
 				secondaryButtonText: "#0F1622",
 				primaryChart: "#141C24",
-				primaryText: "#D4DBE8",
+				primaryText: "#000",
+				secondaryText: "#8A9EBF",
 			},
+		},
+
+		screens: {
+			xsm: "320px",
+
+			sm: "550px",
+
+			md: "768px",
+
+			lg: "1024px",
+
+			xlg: "1440px",
 		},
 	},
 	plugins: [],
