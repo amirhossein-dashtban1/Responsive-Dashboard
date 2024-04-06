@@ -31,15 +31,23 @@ export default {
 		},
 
 		screens: {
-			xsm: "320px",
+			x2s: "320px",
 
-			sm: "550px",
+			xs: "450px",
+
+			sm: "600px",
 
 			md: "768px",
 
 			lg: "1024px",
 
 			xlg: "1440px",
+
+			x2lg: "2560px",
+		},
+
+		rotate: {
+			22.5: "22.5deg",
 		},
 	},
 	plugins: [],

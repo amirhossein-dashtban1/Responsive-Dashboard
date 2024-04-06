@@ -74,8 +74,7 @@ export default function Home() {
 				<p className={`text-xl ml-1`}>Welcome back, Lily!</p>
 			</section>
 
-			<section
-				className={`grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3 xlg:grid-cols-5 justify-items-center`}>
+			<section className='grid grid-cols-1 gap-1 sm:grid-cols-2  lg:grid-cols-3 xlg:grid-cols-5 justify-items-center'>
 				<Card />
 				<Card />
 				<Card />
@@ -84,7 +83,7 @@ export default function Home() {
 			</section>
 
 			<section className='flex flex-col lg:flex-row p-4'>
-				<div className=' border mr-4 p-2 rounded-md flex flex-col w-full lg:w-1/2 border-dark-primaryBorder'>
+				<div className='border mr-4 p-2 rounded-md flex flex-col w-full lg:w-1/2 border-dark-primaryBorder'>
 					<h1>Monthly Revenue</h1>
 					<ResponsiveContainer width={"100%"} height={200}>
 						<LineChart
@@ -135,7 +134,7 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section>
+			<section className=''>
 				<h3 className='mb-6'>Recent Activity</h3>
 
 				<div className='flex pl-4'>
@@ -188,7 +187,7 @@ export default function Home() {
 			</section>
 
 			<div className='items-center flex justify-center sm:justify-end p-2'>
-				<button className=' bg-dark-primaryAction rounded-md p-2 w-24'>
+				<button className='hover:bg-dark-primaryChart text-dark-secondaryButton bg-light-secondaryButton dark:bg-dark-primaryAction rounded-md p-2 w-24'>
 					Add a note
 				</button>
 			</div>

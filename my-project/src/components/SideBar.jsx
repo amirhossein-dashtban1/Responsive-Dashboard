@@ -1,26 +1,45 @@
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faHouse,
 	faUsers,
-	faArrowDownUpAcrossLine,
+	faUser,
 	faPager,
 	faPaperclip,
 	faGear,
+	faHome,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function SideBar() {
+	const menu = [
+		{ id: 0, title: "Home", icon: faHouse, href: "home" },
+		{ id: 1, title: "Profile", icon: faUser, href: "profile" },
+		{ id: 2, title: "Dashboard", icon: faPager, href: "folan" },
+		{ id: 3, title: "Inbox", icon: faGear, href: "folan" },
+		{ id: 4, title: "Contact US", icon: faPaperclip, href: "folan" },
+	];
+
+	const url = useLocation().pathname.split("/")[1];
+
 	return (
-		<section className='p-4 w-1/5 hidden md:flex flex-col justify-between'>
+		<section className='p-4 w-2/5 hidden h-screen md:flex flex-col justify-between'>
 			<section className={`bg-white`}>
-				{[1, 1, 1, 1, 1, 1, 1].map((_, index) => {
+				{menu.map((item) => {
 					return (
 						<Link
-							key={index}
-							className='lg:h-10 max-w-56 h-10 mb-4 p-2 rounded-md hover:bg-dark-primaryAction dark:hover:bg-dark-primaryAction flex items-center'>
-							<FontAwesomeIcon className='mr-3' icon={faGear} />
+							key={item.id}
+							className={`${
+								url === item.href
+									? "bg-dark-primaryAction"
+									: null
+							} lg:h-10 max-w-56 h-10 mb-4 p-2 rounded-md hover:bg-dark-primaryAction dark:hover:bg-dark-primaryAction flex items-center`}
+							to={item.href}>
+							<FontAwesomeIcon
+								className='mr-3'
+								icon={item.icon}
+							/>
 
-							<p className=''>Dashboard</p>
+							<p className=''>{item.title}</p>
 						</Link>
 					);
 				})}
@@ -28,7 +47,7 @@ export default function SideBar() {
 
 			<div>
 				<section className='flex items-center'>
-					<button className='p-1 w-full sm:text-sm lg:text-base rounded-md dark:bg-dark-primaryButton dark:hover:bg-[#ca8a04] dark:text-dark-primaryButtonText'>
+					<button className='p-1 w-full lg:w-56 sm:text-sm lg:text-base rounded-md bg-dark-primaryButton hover:bg-dark-primaryChart dark:bg-dark-primaryButton dark:hover:bg-[#e0b350] dark:text-dark-primaryButtonText'>
 						New Transaction
 					</button>
 				</section>
