@@ -1,27 +1,27 @@
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faHouse,
-	faUsers,
-	faUser,
-	faPager,
-	faPaperclip,
 	faGear,
-	faHome,
 	faMultiply,
+	faNewspaper,
+	faUserGroup,
+	faPhone,
+	faRuler,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function MobileSideBar({ setShowMobileSideBar }) {
+export default function MobileSideBar({ toggleMobileSideBar }) {
 	const menu = [
-		{ id: 0, title: "Home", icon: faHouse, href: "home" },
-		{ id: 1, title: "Profile", icon: faUser, href: "profile" },
-		{ id: 2, title: "Dashboard", icon: faPager, href: "folan" },
-		{ id: 3, title: "Inbox", icon: faGear, href: "folan" },
-		{ id: 4, title: "Contact US", icon: faPaperclip, href: "folan" },
+		{ id: 0, title: "Home", icon: faHouse, href: "/" },
+		{ id: 1, title: "News", icon: faNewspaper, href: "/news/3" },
+		{ id: 2, title: "About US", icon: faUserGroup, href: "/" },
+		{ id: 3, title: "Contact Us", icon: faPhone, href: "/" },
+		{ id: 4, title: "Rules", icon: faRuler, href: "/" },
 	];
 	const url = useLocation().pathname.split("/")[1];
+	console.log(useLocation().pathname.split("/"));
 	return (
-		<section className='absolute px-2 py-3 top-0 left-0 h-full z-50 bg-light-primary dark:bg-dark-primary shadow-2xl sm:w-2/5 w-3/4 '>
+		<section className='absolute px-2 py-3 top-0 left-0 h48 z-50 bg-light-primary dark:bg-dark-primary shadow-2xl sm:w-2/5 w-3/4 '>
 			<div className='border-b-2 border-dark-primaryBorder border-sm pb-1 mb-2 flex items-center justify-end'>
 				<FontAwesomeIcon
 					onClick={() => setShowMobileSideBar(false)}
@@ -33,16 +33,16 @@ export default function MobileSideBar({ setShowMobileSideBar }) {
 
 			{menu.map((item) => {
 				return (
-					<Link
+					<NavLink
 						to={item.href}
 						key={item.id}
 						className={`${
 							url === item.href ? "bg-dark-primaryAction" : null
 						} mb-4 p-2 rounded-md hover:bg-light-primaryAction dark:hover:bg-dark-primaryAction flex items-center`}
-						onClick={() => setShowMobileSideBar(false)}>
+						onClick={() => toggleMobileSideBar}>
 						<FontAwesomeIcon className='mr-4' icon={item.icon} />
 						{item.title}
-					</Link>
+					</NavLink>
 				);
 			})}
 
@@ -56,16 +56,20 @@ export default function MobileSideBar({ setShowMobileSideBar }) {
 				</section>
 
 				<section className='mt-4'>
-					<Link className='lg:h-10 max-w-56 h-10 mb-4 p-2 rounded-md hover:bg-light-primaryAction flex items-center'>
+					<NavLink
+						to='/'
+						className='lg:h-10 max-w-56 h-10 mb-4 p-2 rounded-md hover:bg-light-primaryAction flex items-center'>
 						<FontAwesomeIcon className='mr-3' icon={faGear} />
 
 						<p className=''>Dashboard</p>
-					</Link>
-					<Link className='lg:h-10 max-w-56 h-10 mb-4 p-2 rounded-md hover:bg-light-primaryAction dark:hover:bg-dark-primaryAction flex items-center'>
+					</NavLink>
+					<NavLink
+						to='/'
+						className='lg:h-10 max-w-56 h-10 mb-4 p-2 rounded-md hover:bg-light-primaryAction dark:hover:bg-dark-primaryAction flex items-center'>
 						<FontAwesomeIcon className='mr-3' icon={faGear} />
 
 						<p className=''>Dashboard</p>
-					</Link>
+					</NavLink>
 				</section>
 			</div>
 		</section>

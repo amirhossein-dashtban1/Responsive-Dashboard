@@ -8,18 +8,10 @@ import {
 	ResponsiveContainer,
 	BarChart,
 	Tooltip,
-	Legend,
 	Bar,
 } from "recharts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faHouse,
-	faUsers,
-	faArrowDownUpAcrossLine,
-	faPager,
-	faPaperclip,
-	faGear,
-} from "@fortawesome/free-solid-svg-icons";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
 	const data = [

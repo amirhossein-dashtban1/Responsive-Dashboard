@@ -10,25 +10,25 @@ import News from "./pages/News";
 
 export default function App() {
 	const [mode, themeMode] = modeSetting();
-	// console.log(mode);
+
 	themeMode.addThemeModeClass(mode);
 
-	// console.log(mode);
-	// console.log(window.document.documentElement);
 	return (
 		<ThemeModeContext.Provider value={{ mode, themeMode }}>
 			<Routes>
-				<Route path='/' element={<Index />}>
-					<Route path='home' element={<Home />}></Route>
-
-					<Route path='profile' element={<Profile />}></Route>
-				</Route>
+				<Route path='/' element={<Main />}></Route>
 
 				<Route path='/signup' element={<SignUp />}></Route>
 
 				<Route path='/login' element={<Login />}></Route>
 
-				<Route path='/main' element={<Main />}></Route>
+				<Route path='/dashboard' element={<Index />}>
+					<Route path='home' element={<Home />}></Route>
+
+					<Route path='profile' element={<Profile />}></Route>
+				</Route>
+
+				{/* <Route path='/main' element={<Main />}></Route> */}
 
 				<Route
 					path='/news/:paginationNumber'

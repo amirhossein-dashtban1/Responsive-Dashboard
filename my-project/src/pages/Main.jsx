@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
-// import CreditCard from "../components/CreditCard";
+import NewsBox from "../components/NewsBox";
+import Footer from "../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faDollar,
@@ -9,13 +11,11 @@ import {
 	faDollarSign,
 	faMoneyBillTransfer,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import NewsBox from "../components/NewsBox";
-import Footer from "../components/Footer";
+// import CreditCard from "../components/CreditCard";
 
 export default function Main() {
 	return (
-		<div className='items-center dark:bg-dark-primary flex flex-col h-full dark:text-dark-primaryText w-full'>
+		<div className='items-center dark:bg-dark-primary bg-light-primary flex flex-col h-full dark:text-dark-primaryText w-full'>
 			<div className='items-center border-b border-b-dark-primaryBorder flex justify-between p-4 w-full'>
 				<NavBar />
 			</div>
