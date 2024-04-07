@@ -12,14 +12,14 @@ import {
 
 export default function SideBar() {
 	const menu = [
-		{ id: 0, title: "Home", icon: faHouse, href: "home" },
 		{ id: 1, title: "Profile", icon: faUser, href: "profile" },
 		{ id: 2, title: "Dashboard", icon: faPager, href: "folan" },
 		{ id: 3, title: "Inbox", icon: faGear, href: "folan" },
-		{ id: 4, title: "Contact US", icon: faPaperclip, href: "folan" },
 	];
 
 	const url = useLocation().pathname.split("/")[1];
+
+	console.log(url);
 
 	return (
 		<section className='p-4 w-2/5 hidden h-screen md:flex flex-col justify-between'>
