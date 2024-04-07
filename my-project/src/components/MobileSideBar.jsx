@@ -32,7 +32,7 @@ export default function MobileSideBar({ toggleMobileSideBar }) {
 	console.log(url);
 	return (
 		<section className='absolute px-2 py-3 top-0 left-0 h48 z-50 bg-light-primary dark:bg-dark-primary shadow-2xl sm:w-2/5 w-3/4 '>
-			<div className='border-b-2 border-dark-primaryBorder border-sm pb-1 mb-2 flex items-center justify-end'>
+			<div className='border-b border-dark-primaryBorder border-sm pb-1 mb-2 flex items-center justify-end'>
 				<FontAwesomeIcon
 					onClick={() => setShowMobileSideBar(false)}
 					className='text'
@@ -41,8 +41,26 @@ export default function MobileSideBar({ toggleMobileSideBar }) {
 				/>
 			</div>
 
-			{url != "dashboard"
-				? menu.map((item) => {
+			{menu.map((item) => {
+				return (
+					<NavLink
+						to={item.href}
+						key={item.id}
+						className={`${
+							url === item.href ? "bg-dark-primaryAction" : null
+						} mb-4 p-2 rounded-md hover:bg-light-primaryAction dark:hover:bg-dark-primaryAction flex items-center`}
+						onClick={() => toggleMobileSideBar}>
+						<FontAwesomeIcon className='mr-4' icon={item.icon} />
+						{item.title}
+					</NavLink>
+				);
+			})}
+
+			<div className='bg-dark-primaryBorder w-full h-[1px]'></div>
+
+			{url === "dashboard" && (
+				<div className='mt-6'>
+					{dashboardMenu.map((item) => {
 						return (
 							<NavLink
 								to={item.href}
@@ -60,53 +78,15 @@ export default function MobileSideBar({ toggleMobileSideBar }) {
 								{item.title}
 							</NavLink>
 						);
-				  })
-				: dashboardMenu.map((item) => {
-						return (
-							<NavLink
-								to={item.href}
-								key={item.id}
-								className={`${
-									url === item.href
-										? "bg-dark-primaryAction"
-										: null
-								} mb-4 p-2 rounded-md hover:bg-light-primaryAction dark:hover:bg-dark-primaryAction flex items-center`}
-								onClick={() => toggleMobileSideBar}>
-								<FontAwesomeIcon
-									className='mr-4'
-									icon={item.icon}
-								/>
-								{item.title}
-							</NavLink>
-						);
-				  })}
+					})}
 
-			<div className='bg-dark-primaryAction w-full h-[1px]'></div>
-
-			<div className='mt-6'>
-				<section className='flex items-center'>
-					<button className='p-1 w-full rounded-md bg-dark-primaryButton dark:bg-dark-primaryButton hover:bg-[#ca8a04] dark:text-dark-primaryButtonText'>
-						New Transaction
-					</button>
-				</section>
-
-				<section className='mt-4'>
-					<NavLink
-						to='/'
-						className='lg:h-10 max-w-56 h-10 mb-4 p-2 rounded-md hover:bg-light-primaryAction flex items-center'>
-						<FontAwesomeIcon className='mr-3' icon={faGear} />
-
-						<p className=''>Dashboard</p>
-					</NavLink>
-					<NavLink
-						to='/'
-						className='lg:h-10 max-w-56 h-10 mb-4 p-2 rounded-md hover:bg-light-primaryAction dark:hover:bg-dark-primaryAction flex items-center'>
-						<FontAwesomeIcon className='mr-3' icon={faGear} />
-
-						<p className=''>Dashboard</p>
-					</NavLink>
-				</section>
-			</div>
+					<section className='flex items-center'>
+						<button className='p-1 w-full rounded-md bg-dark-primaryButton dark:bg-dark-primaryButton hover:bg-[#ca8a04] dark:text-dark-primaryButtonText'>
+							New Transaction
+						</button>
+					</section>
+				</div>
+			)}
 		</section>
 	);
 }
