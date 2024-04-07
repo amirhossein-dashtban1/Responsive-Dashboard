@@ -23,7 +23,7 @@ export default function NewsBox() {
 
 			<div className='w-1/4 ml-4'>
 				<img
-					src='./src/assets/pikaso_texttoimage_A-picture-of-transferring-assets-through-the-Inter.jpeg'
+					src='.././src/assets/pikaso_texttoimage_A-picture-of-transferring-assets-through-the-Inter.jpeg'
 					className='rounded-lg w-full'
 				/>
 			</div>

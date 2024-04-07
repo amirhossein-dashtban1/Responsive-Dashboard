@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ThemeModeContext } from "../context/ThemeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faAlignJustify,
@@ -7,9 +9,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavBar() {
+	const modeObject = useContext(ThemeModeContext);
+
 	return (
 		<>
-			<div className=''>
+			<div
+				className=''
+				onClick={() => {
+					modeObject.themeMode.toggleThemeMode();
+				}}>
 				<FontAwesomeIcon
 					className='rounded-2xl shadow-2xl'
 					size='lg'
@@ -31,10 +39,10 @@ export default function NavBar() {
 			<div className='hidden md:block'>
 				<ul className='items-center flex justify-center'>
 					<li className='mx-4 hover:text-dark-secondaryText'>
-						<Link>Home</Link>
+						<Link to='/main'>Home</Link>
 					</li>
 					<li className='mx-4 hover:text-dark-secondaryText'>
-						<Link>News</Link>
+						<Link to='/news/1'>News</Link>
 					</li>
 					<li className='mx-4 hover:text-dark-secondaryText'>
 						<Link>About US</Link>
@@ -59,8 +67,8 @@ export default function NavBar() {
 
 			<div className='hidden md:block w-[50px] h-[50px]'>
 				<img
-					className=''
-					src='./src/assets/7de4ad1f547c40e6844b842c206aa46f.png'
+					className='rounded-xl'
+					src='../src/assets/7de4ad1f547c40e6844b842c206aa46f.png'
 					alt=''
 				/>
 			</div>

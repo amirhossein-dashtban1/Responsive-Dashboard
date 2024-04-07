@@ -49,6 +49,10 @@ export default {
 		rotate: {
 			22.5: "22.5deg",
 		},
+
+		scale: {
+			102: "1.02",
+		},
 	},
 	plugins: [],
 };

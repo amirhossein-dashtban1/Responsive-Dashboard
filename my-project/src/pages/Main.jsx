@@ -1,10 +1,7 @@
 import NavBar from "../components/NavBar";
-import CreditCard from "../components/CreditCard";
+// import CreditCard from "../components/CreditCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	faAlignJustify,
-	faMoon,
-	faSun,
 	faDollar,
 	faArrowRight,
 	faShield,
@@ -151,22 +148,16 @@ export default function Main() {
 					Latest News
 				</h2>
 
-				<div className='md:hover:skew-x-3'>
-					<Link>
-						<NewsBox />
-					</Link>
+				<div className='md:hover:scale-102'>
+					<NewsBox />
 				</div>
 
-				<div className='md:hover:skew-x-3'>
-					<Link>
-						<NewsBox />
-					</Link>
+				<div className='md:hover:scale-102'>
+					<NewsBox />
 				</div>
 
-				<div className='md:hover:skew-x-3'>
-					<Link>
-						<NewsBox />
-					</Link>
+				<div className='md:hover:scale-102'>
+					<NewsBox />
 				</div>
 			</div>
 

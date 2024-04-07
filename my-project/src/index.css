@@ -5,6 +5,7 @@
 input:focus {
 	@apply outline-none;
 }
+
 .active {
 	background-color: rgb(255, 140, 0);
 }

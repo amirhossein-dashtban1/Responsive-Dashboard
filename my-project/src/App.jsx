@@ -3,9 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
-import SignUp from "./pages/SignUp"
+import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
+import News from "./pages/News";
 
 export default function App() {
 	const [mode, themeMode] = modeSetting();
@@ -28,6 +29,10 @@ export default function App() {
 				<Route path='/login' element={<Login />}></Route>
 
 				<Route path='/main' element={<Main />}></Route>
+
+				<Route
+					path='/news/:paginationNumber'
+					element={<News />}></Route>
 			</Routes>
 		</ThemeModeContext.Provider>
 	);
