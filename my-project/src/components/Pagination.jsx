@@ -6,12 +6,13 @@ export default function Pagination({
 	itemsperPage,
 	paginationCount,
 	handleClick,
+	href,
 }) {
 	const Map = new Array(paginationCount).fill(0);
 
 	useEffect(() => {
 		handleClick();
-	}, [paginationNumber, itemsperPage]);
+	}, [paginationNumber, paginationCount]);
 
 	return (
 		<div className='flex'>
@@ -19,9 +20,8 @@ export default function Pagination({
 				return (
 					<Link
 						key={index}
-						to={`/news/${index + 1}`}
-						className='mr-4 hover:text-dark-secondaryText'
-						onClick={handleClick}>
+						to={`${href}/page${index + 1}`}
+						className='mr-4 hover:text-dark-secondaryText'>
 						{index + 1}
 					</Link>
 				);
@@ -29,3 +29,5 @@ export default function Pagination({
 		</div>
 	);
 }
+
+// onClick={handleClick}

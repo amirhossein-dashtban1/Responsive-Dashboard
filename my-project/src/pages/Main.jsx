@@ -148,17 +148,10 @@ export default function Main() {
 					Latest News
 				</h2>
 
-				<div className='md:hover:scale-102'>
-					<NewsBox />
-				</div>
-
-				<div className='md:hover:scale-102'>
-					<NewsBox />
-				</div>
-
-				<div className='md:hover:scale-102'>
-					<NewsBox />
-				</div>
+				<NewsBox />
+				<NewsBox />
+				<NewsBox />
+				<NewsBox />
 			</div>
 
 			<Footer />

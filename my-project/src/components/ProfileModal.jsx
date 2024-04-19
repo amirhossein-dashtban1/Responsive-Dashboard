@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDoorClosed, faDashboard } from "@fortawesome/free-solid-svg-icons";
 
-export default function ProfileModal() {
+export default function ProfileModal({hideModal}) {
 	return (
 		<div className='absolute flex flex-col p-2 w-64 top-20 left-8 bg-dark-primaryBorder rounded z-50'>
 			<div className='px-2 py-3 mx-2 border-b flex flex-col'>
@@ -16,7 +16,7 @@ export default function ProfileModal() {
 
 			<Link
 				className='mb-2 mt-2 hover:bg-dark-primaryAction px-2 py-3 mx-2 hover:text-primaryAction rounded-xl '
-				to='/dashboard/home'>
+				to='/dashboard/home' onClick={hideModal}>
 				<FontAwesomeIcon
 					className='mr-2 rounded-2xl shadow-2xl text-lg'
 					icon={faDashboard}

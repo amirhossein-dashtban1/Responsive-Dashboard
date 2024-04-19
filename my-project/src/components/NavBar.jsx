@@ -1,8 +1,9 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { ThemeModeContext } from "../context/ThemeContext";
 import ProfileModal from "./ProfileModal";
 import BackDrop from "./BackDrop";
+// import logo from "../assets/7de4ad1f547c40e6844b842c206aa46f.png";
 import MobileSideBar from "./MobileSideBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -19,9 +20,21 @@ export default function NavBar() {
 	const [toggleMobileSideBar, setToggleMobileSideBar] = useState(false);
 	const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
 
+	const url = useLocation().pathname.split("/")[1];
+	// console.log(url);
+
+	const menu = [
+		{ id: 0, title: "Home", href: "/" },
+		{ id: 1, title: "News", href: "/news/page1" },
+		{ id: 2, title: "About US", href: "/" },
+		{ id: 3, title: "Contact US", href: "/" },
+		{ id: 4, title: "Rules", href: "/" },
+	];
+
+	// console.log(menu[0].href.split('/'));
+
 	const toggleModal = () => {
 		setToggleProfileModal((prev) => !prev);
-		console.log("Toggle!");
 	};
 
 	const hideModal = () => {
@@ -38,12 +51,12 @@ export default function NavBar() {
 
 	return (
 		<>
-			<div className=' items-center flex justify-center'>
+			<div className='items-center flex justify-center'>
 				{isUserLoggedIn ? (
 					<div>
 						<div
 							onClick={toggleModal}
-							className='z-20 relative shadow-2xl dark:bg-dark-primaryBorder bg-light-primaryBorder w-12 h-12 flex items-center justify-center rounded-full'>
+							className='z-50 relative shadow-2xl dark:bg-dark-primaryBorder bg-light-primaryBorder w-12 h-12 flex items-center justify-center rounded-full'>
 							<FontAwesomeIcon
 								className=' rounded-2xl shadow-2xl text-3xl'
 								icon={faUser}
@@ -53,7 +66,7 @@ export default function NavBar() {
 						<div>
 							{toggleProfileModal && (
 								<>
-									<ProfileModal />
+									<ProfileModal hideModal={hideModal} />
 									<BackDrop setToggleModal={hideModal} />
 								</>
 							)}
@@ -98,21 +111,18 @@ export default function NavBar() {
 
 			<div className='hidden md:block'>
 				<ul className='items-center flex justify-center'>
-					<li className='mx-4 hover:text-dark-secondaryText'>
-						<Link to='/'>Home</Link>
-					</li>
-					<li className='mx-4 hover:text-dark-secondaryText'>
-						<Link to='/news/1'>News</Link>
-					</li>
-					<li className='mx-4 hover:text-dark-secondaryText'>
-						<Link to='/'>About US</Link>
-					</li>
-					<li className='mx-4 hover:text-dark-secondaryText'>
-						<Link to='/'>Contact US</Link>
-					</li>
-					<li className='mx-4 hover:text-dark-secondaryText'>
-						<Link to='/'>Rules</Link>
-					</li>
+					{menu.map((item, index) => {
+						return (
+							<li
+								key={index}
+								className={`${
+									item.href.split("/")[1] === url &&
+									"text-dark-secondaryText"
+								} mx-4 hover:text-dark-secondaryText`}>
+								<Link to={item.href}>{item.title}</Link>
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 
@@ -128,7 +138,7 @@ export default function NavBar() {
 			<div className='md:mr-4 hidden md:justify-end md:flex w-[100px] h-[50px]'>
 				<img
 					className='rounded-xl w-[50px] h-[50px]'
-					src='../src/assets/7de4ad1f547c40e6844b842c206aa46f.png'
+					src='/src/assets/7de4ad1f547c40e6844b842c206aa46f.png'
 					alt=''
 				/>
 			</div>

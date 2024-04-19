@@ -4,11 +4,16 @@ import MobileSideBar from "../components/MobileSideBar";
 import BackDrop from "../components/BackDrop";
 import SideBar from "../components/SideBar";
 import { Outlet } from "react-router";
+import Footer from "../components/Footer";
 
 export default function Index() {
-	const [showMobileSideBar, setShowMobileSideBar] = useState(false);
+	const [toggleMobileSideBar, setToggleMobileSideBar] = useState(false);
+
+	localStorage.removeItem("menuActiveClass")
+	// console.log("Index");
+
 	return (
-		<section className='h-full dark:bg-dark-primary dark:text-dark-primaryText'>
+		<section className='dark:bg-dark-primary dark:text-dark-primaryText h-full w-full'>
 			<div className='items-center border-b border-b-dark-primaryBorder flex justify-between p-4 w-full'>
 				<NavBar />
 			</div>
@@ -16,19 +21,23 @@ export default function Index() {
 			<section className='flex justify-center h-full'>
 				<SideBar></SideBar>
 
-				{showMobileSideBar ? (
+				{toggleMobileSideBar ? (
 					<>
 						<MobileSideBar
-							setShowMobileSideBar={setShowMobileSideBar}
+							settoggleMobileSideBar={setToggleMobileSideBar}
 						/>
-						<BackDrop setShowMobileSideBar={setShowMobileSideBar} />
+						<BackDrop
+							settoggleMobileSideBar={setToggleMobileSideBar}
+						/>
 					</>
 				) : null}
 
-				<section className='p-4 w-4/5 flex flex-col h-full'>
+				<section className='p-4 flex flex-col w-4/5'>
 					<Outlet />
 				</section>
 			</section>
+
+			<Footer />
 		</section>
 	);
 }

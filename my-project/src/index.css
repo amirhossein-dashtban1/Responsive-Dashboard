@@ -7,5 +7,5 @@ input:focus {
 }
 
 .active {
-	background-color: rgb(255, 140, 0);
+	background-color: #666;
 }

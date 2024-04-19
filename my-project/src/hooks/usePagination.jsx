@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 export default function usePagination(allItems, pageItemsCount) {
 	const [paginatedItems, setPaginatedItems] = useState([]);
 	const [itemsPerPage, setItemsPerPage] = useState(pageItemsCount);
-	const paginationNumber = useParams().paginationNumber;
+	const paginationNumber = useParams().paginationNumber.slice(4);
 	const paginationCount = Math.ceil(allItems.length / itemsPerPage);
 
-	const handleClick = () => {
+	const handlePagiantion = () => {
 		let filteredArr = allItems.filter((_, index) => {
 			return (
 				index >= paginationNumber * itemsPerPage - itemsPerPage &&
@@ -18,5 +18,5 @@ export default function usePagination(allItems, pageItemsCount) {
 		setPaginatedItems(filteredArr);
 	};
 
-	return [paginatedItems, setItemsPerPage, paginationNumber, paginationCount, handleClick];
+	return [paginatedItems, setItemsPerPage, paginationNumber, paginationCount, handlePagiantion];
 }

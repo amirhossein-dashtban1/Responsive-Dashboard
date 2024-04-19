@@ -7,10 +7,11 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
 import News from "./pages/News";
+import Transactions from "./components/Transactions";
+import Inbox from "./components/Inbox";
 
 export default function App() {
 	const [mode, themeMode] = modeSetting();
-
 	themeMode.addThemeModeClass(mode);
 
 	return (
@@ -24,6 +25,14 @@ export default function App() {
 
 				<Route path='/dashboard' element={<Index />}>
 					<Route path='home' element={<Home />}></Route>
+
+					<Route
+						path='transactions/:paginationNumber'
+						element={<Transactions />}></Route>
+
+					<Route
+						path='inbox/:paginationNumber'
+						element={<Inbox />}></Route>
 
 					<Route path='profile' element={<Profile />}></Route>
 				</Route>

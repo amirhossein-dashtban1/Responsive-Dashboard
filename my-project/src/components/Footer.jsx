@@ -13,7 +13,7 @@ import {
 
 export default function Footer() {
 	return (
-		<section className='border-dark-primaryBorder border-t flex flex-col justify-between mt-4 w-full'>
+		<section className='border-dark-primaryBorder border-t flex flex-col justify-between w-full'>
 			<div className='flex flex-col xs:flex-row w-full p-8'>
 				<div className='flex flex-col justify-normal mb-6 w-full md:w-1/2'>
 					<div className='items-center flex justify-start'>

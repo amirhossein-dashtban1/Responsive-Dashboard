@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function NewsBox() {
 	return (
-		<div className='flex justify-between my-12 w-full'>
+		<div className='flex justify-between my-12 w-full md:hover:scale-102 md:hover:shadow-2xl shad p-4'>
 			<div className='flex flex-col justify-between w-3/4 mr-4'>
 				<div className=''>
 					<h3 className='mb-1 text-[6px] md:text-sm text-dark-secondaryText'>

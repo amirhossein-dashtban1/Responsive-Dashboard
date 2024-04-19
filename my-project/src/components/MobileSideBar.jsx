@@ -30,7 +30,7 @@ export default function MobileSideBar({ toggleMobileSideBar }) {
 
 	console.log(url);
 	return (
-		<section className='absolute px-2 py-3 top-0 left-0 h48 z-50 bg-light-primary dark:bg-dark-primary shadow-2xl sm:w-2/5 w-3/4 '>
+		<section className='absolute px-2 py-3 top-0 left-0 z-50 bg-light-primary dark:bg-dark-primary shadow-2xl sm:w-2/5 w-3/4 '>
 			<div className='border-b border-dark-primaryBorder border-sm pb-1 mb-2 flex items-center justify-end'>
 				<FontAwesomeIcon
 					onClick={toggleMobileSideBar}
