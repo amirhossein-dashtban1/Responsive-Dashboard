@@ -9,6 +9,7 @@ import Main from "./pages/Main";
 import News from "./pages/News";
 import Transactions from "./components/Transactions";
 import Inbox from "./components/Inbox";
+import New from "./pages/New";
 
 export default function App() {
 	const [mode, themeMode] = modeSetting();
@@ -42,6 +43,8 @@ export default function App() {
 				<Route
 					path='/news/:paginationNumber'
 					element={<News />}></Route>
+
+				<Route path='/new/:id' element={<New />}></Route>
 			</Routes>
 		</ThemeModeContext.Provider>
 	);

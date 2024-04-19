@@ -10,11 +10,14 @@ export default function NewsBox() {
 					</h3>
 
 					<p className='xl:text-xl lg:text-lg x2s:text-[9px] break-all'>
-						a;sldajcakcldnscsbzvhjbvjzska;sldajcakcldnscsbzvhjbvjzssldajcakcldnscsbzvhjbvjzsk
+						Lorem Ipsum is simply dummy text of the printing
+						andtypesetting industry. Lorem Ipsum has been the
+						industry's standard dummy text ever since the 1500s,when
+						an unknown printer took a galley of type an
 					</p>
 				</div>
 
-				<Link className=''>
+				<Link className='' to={`/new/1`}>
 					<button className='bg-dark-primaryButton md:p-2 x2s:p-[4px] md:text-sm x2s:text-[7px] text-dark-primaryButtonText relative rounded-lg hover:bg-[#ffe95b]'>
 						Read More!
 					</button>
