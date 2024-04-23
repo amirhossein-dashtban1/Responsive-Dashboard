@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import getPathaName from "../utils/getPathName";
 
 export default function Pagination({
 	paginationNumber,
@@ -10,8 +11,10 @@ export default function Pagination({
 }) {
 	const Map = new Array(paginationCount).fill(0);
 
+	const url = getPathaName()
+
 	useEffect(() => {
-		handleClick();
+		handleClick(1);
 	}, [paginationNumber, paginationCount]);
 
 	return (
@@ -21,7 +24,9 @@ export default function Pagination({
 					<Link
 						key={index}
 						to={`${href}/page${index + 1}`}
-						className='mr-4 hover:text-dark-secondaryText'>
+						className={`${
+							url == index + 1 && "text-dark-secondaryText"
+						} mr-4 hover:text-dark-secondaryText`}>
 						{index + 1}
 					</Link>
 				);

@@ -18,5 +18,11 @@ export default function usePagination(allItems, pageItemsCount) {
 		setPaginatedItems(filteredArr);
 	};
 
-	return [paginatedItems, setItemsPerPage, paginationNumber, paginationCount, handlePagiantion];
+	return [
+		paginatedItems,
+		setItemsPerPage,
+		paginationNumber,
+		paginationCount,
+		handlePagiantion,
+	];
 }
